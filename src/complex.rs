@@ -3,7 +3,7 @@ use std::ops::Mul;
 use std::fmt;
 
 // implement the Complex struct and traits below
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Complex {
     pub re: f64,
     pub im: f64,

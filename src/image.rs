@@ -1,6 +1,7 @@
 // implement the Image struct and traits here
 use crate::pixel::Pixel;
 
+#[derive(Clone, Debug)]
 pub struct Image {
         pub width: usize,
         pub height: usize,

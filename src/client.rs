@@ -6,7 +6,7 @@ use crate::image::Image;
 
 // implement the parse_args() function here
 
-pub fn parse_args(args: Vec<String>) -> (Fractal, String) {
+pub fn parse_args(args: Vec<String>) -> Result<(Fractal, String), String> {
     let it: usize = 1;
     let mut width: usize = 0;
     let mut height: usize = 0;
@@ -37,7 +37,7 @@ pub fn parse_args(args: Vec<String>) -> (Fractal, String) {
         }
     }
     if width == 0 || height == 0 || filename == "".to_string() {
-        panic!("Required Arguments weren't provided!")
+        return Err("Required Arguments weren't provided!".to_string());
     }
     // let width: usize,
     // let height: usize,
@@ -46,7 +46,7 @@ pub fn parse_args(args: Vec<String>) -> (Fractal, String) {
     // let zoom: f32,
     // let center: Complex,
     let ret = Fractal::new(width,height,300,Complex{ re: -0.7, im: 0.27015 }, 1.0, Complex{ re: 0.0, im: 0.0 });
-    return (ret, filename);
+    return Ok((ret, filename));
 }
 
 #[allow(dead_code)]

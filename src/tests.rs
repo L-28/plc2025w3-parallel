@@ -10,6 +10,7 @@ use crate::complex::Complex;
 use crate::image::{Image};
 use crate::pixel::{Pixel};
 use crate::fractal::{Fractal};
+use crate::client;
 
 #[cfg(test)]
 mod tests {
@@ -281,7 +282,7 @@ P3
 
         fs::remove_file(filename).unwrap();
     }*/
-/*
+
     #[test]
     fn test_parse_args_passing() {
         let fake_args = vec![
@@ -575,7 +576,7 @@ P3
             height: 400,
             max_iter: 600,
             c: Complex{ re: -0.8, im: 0.156 },
-            zoom: 10.0 as f64,
+            zoom: 10.0 as f32,
             center: Complex{ re: -0.5, im: 0.3 },
             color_fn: None,
         };
@@ -594,6 +595,6 @@ P3
 
         // Cleanup
         fs::remove_file(filename).unwrap();
-    }*/
+    }
 }
 

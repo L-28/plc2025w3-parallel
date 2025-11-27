@@ -17,6 +17,4 @@ fn main() {
     // uncomment and implement argument parsing, priting an error messages and calling fractal methods
     let args: Vec<String> = env::args().collect();
     let outp = client::parse_args(args);
-    let frac = outp.0;
-    let file = outp.1;
 }
