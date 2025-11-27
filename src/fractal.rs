@@ -32,8 +32,8 @@ impl Fractal {
     pub fn render(&self) -> Image {
         let mut ret = Image::new(self.width, self.height);
         for px in 0..(self.width*self.height){
-            let x = px % self.height;
-            let y = px / self.height;
+            let x = px % self.width;
+            let y = px / self.width;
             let zx = self.center.get_re() + (x as f64 - self.width as f64 / 2.0) * (3.0/self.zoom as f64/self.width as f64);
             let zy = self.center.get_im() + (y as f64 - self.height as f64 / 2.0) * (3.0/self.zoom as f64/self.height as f64);
             let c = Complex::new(zx, zy);
