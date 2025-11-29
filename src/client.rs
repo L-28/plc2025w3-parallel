@@ -36,16 +36,12 @@ pub fn parse_args(args: Vec<String>) -> Result<(Fractal, String), String> {
             max_iter = s.replace("--max-iter=", "").parse::<usize>().unwrap();
         }
     }
+
     if width == 0 || height == 0 || filename == "".to_string() {
         return Err("Required Arguments weren't provided!".to_string());
     }
-    // let width: usize,
-    // let height: usize,
-    // let max_iter: usize, // = 300 by default
-    // let c: Complex,
-    // let zoom: f32,
-    // let center: Complex,
-    let ret = Fractal::new(width,height,300,Complex{ re: -0.7, im: 0.27015 }, 1.0, Complex{ re: 0.0, im: 0.0 });
+
+    let ret = Fractal::new(width, height, max_iter, c, zoom, center);
     return Ok((ret, filename));
 }
 

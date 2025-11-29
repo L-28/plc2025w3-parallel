@@ -5,7 +5,7 @@ use crate::complex::Complex;
 
 pub type ColorFn = fn(usize, usize) -> Pixel;
 
-
+#[derive(Clone)]
 pub struct Fractal {
     pub width: usize,
     pub height: usize,

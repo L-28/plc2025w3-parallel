@@ -17,4 +17,6 @@ fn main() {
     // uncomment and implement argument parsing, priting an error messages and calling fractal methods
     let args: Vec<String> = env::args().collect();
     let outp = client::parse_args(args);
+    let image = outp.clone().expect("REASON").0.render();
+    client::save_ppm(&image, &outp.expect("REASON").1, "P3");
 }

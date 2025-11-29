@@ -130,7 +130,7 @@ mod tests {
 
         assert_eq!(pixel_is_in_the_set.is_some(), true);
     }
-/*
+
     #[test]
     fn test_save_ppm6_single_pixel() {
         let mut img = Image::new(1, 1);
@@ -180,7 +180,7 @@ P3
         // Cleanup
         fs::remove_file(filename).unwrap();
     }
-*/
+
     #[test]
     fn fractal_color_fn() {
 
@@ -240,7 +240,7 @@ P3
         assert_eq!(black_pixel_count, 7132);
     }
 
-/*
+
     #[test]
     fn fractal_render_and_save_p6() {
         let fractal = Fractal {
@@ -248,7 +248,7 @@ P3
             height: 100,
             max_iter: 300,
             c: Complex{ re: -0.8, im: 0.156 },
-            zoom: 2.0 as f64,
+            zoom: 2.0 as f32,
             center: Complex{ re: 0.0, im: 0.0 },
             color_fn: None,
         };
@@ -269,7 +269,7 @@ P3
             height: 100,
             max_iter: 300,
             c: Complex{ re: -0.8, im: 0.156 },
-            zoom: 2.0 as f64,
+            zoom: 2.0 as f32,
             center: Complex{ re: 0.0, im: 0.0 },
             color_fn: None,
         };
@@ -281,7 +281,7 @@ P3
         client::save_ppm(&image, filename, "P3").unwrap();
 
         fs::remove_file(filename).unwrap();
-    }*/
+    }
 
     #[test]
     fn test_parse_args_passing() {
