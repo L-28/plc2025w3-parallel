@@ -1,10 +1,10 @@
 #![allow(warnings)]
 
-// mod client;
-// mod complex;
-// mod image;
-// mod pixel;
-// mod fractal;
+mod client;
+mod complex;
+mod image;
+mod pixel;
+mod fractal;
 
 use crate::client;
 use crate::complex;
