@@ -18,5 +18,5 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     let outp = client::parse_args(args);
     let image = outp.clone().expect("REASON").0.render();
-    client::save_ppm(&image, &outp.expect("REASON").1, "P3");
+    let _ = client::save_ppm(&image, &outp.expect("REASON").1, "P3");
 }
