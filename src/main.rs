@@ -33,15 +33,6 @@ Options:
     let outp = client::parse_args(args);
     let frac = outp.clone().unwrap().0;
     let image = frac.render();
-    let _ = client::save_ppm(&image, &outp.unwrap().1, "P3");
-    let fractal = Fractal {
-        width: 400,
-        height: 400,
-        max_iter: 300,
-        //c: Complex{ re: -0.7, im: 0.27015 },
-        c: Complex{ re: 1.0, im: 1.0 },
-        zoom: 1.0 as f64,
-        center: Complex{ re: 0.0, im: 0.0 },
-        color_fn: None,
-    };
+    let _ = client::save_ppm(&image, &outp.clone().unwrap().1, "P6");
+    println!("Julia set saved to {} (pixel check: {})", &outp.clone().unwrap().1, image.get_black_pixel_count());
 }
