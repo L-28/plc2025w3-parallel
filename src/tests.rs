@@ -6,12 +6,6 @@ mod image;
 mod pixel;
 mod fractal;
 
-use crate::client;
-use crate::complex;
-use crate::image;
-use crate::pixel;
-use crate::fractal;
-
 use crate::complex::Complex;
 use crate::image::{Image};
 use crate::pixel::{Pixel};
