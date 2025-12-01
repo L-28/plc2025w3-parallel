@@ -15,28 +15,8 @@ pub fn parse_args(args: Vec<String>) -> Result<(Fractal, String), String> {
     let mut c = Complex{re:0.0, im:0.0};
     let mut center = Complex{re:0.0, im:0.0};
     let mut zoom:f64 = 1.0;
-    // for s in args {
-        // if s.contains("--width="){
-        //     width = s.replace("--width=", "").parse::<usize>().unwrap();
-        // } else if s.contains("--height="){
-        //     height = s.replace("--height=", "").parse::<usize>().unwrap();
-        // } else if s.contains("--o="){
-        //     filename = s.replace("--o=", "");
-        // } else if s.contains("--zoom="){
-        //     zoom = s.replace("--zoom=", "").parse::<f64>().unwrap();
-        // } else if s.contains("--center="){
-        //     let b = s.replace("--center=", "");
-        //     let a: Vec<&str> = b.split(',').collect();
-        //     center = Complex{re: a[0].parse::<f64>().unwrap(), im:a[1].parse::<f64>().unwrap()}
-        // } else if s.contains("--c="){
-        //     let b = s.replace("--c=", "");
-        //     let a: Vec<&str> = b.split(',').collect();
-        //     c = Complex{re: a[0].parse::<f64>().unwrap(), im:a[1].parse::<f64>().unwrap()}
-        // } else if s.contains("--max-iter="){
-        //     max_iter = s.replace("--max-iter=", "").parse::<usize>().unwrap();
-        // }
-    // }
     let mut i = 1;
+
     while i < args.len() {
         if args[i].contains("--width"){
             width = args[i+1].parse::<usize>().unwrap();
@@ -59,6 +39,7 @@ pub fn parse_args(args: Vec<String>) -> Result<(Fractal, String), String> {
         }
         i += 2;
     }
+
     if width == 0 || height == 0 {
         return Err("Required Arguments weren't provided!".to_string());
     }

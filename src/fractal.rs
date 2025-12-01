@@ -11,7 +11,7 @@ pub struct Fractal {
     pub height: usize,
     pub max_iter: usize, // = 300 by default
     pub c: Complex,
-    pub zoom: f32,
+    pub zoom: f64,
     pub center: Complex,
     pub color_fn: Option<ColorFn>,
 }
@@ -23,7 +23,7 @@ impl Fractal {
             height: height,
             max_iter: max_iter,
             c: c,
-            zoom: zoom as f32,
+            zoom: zoom as f64,
             center: center,
             color_fn: None,
         }
