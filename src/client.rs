@@ -10,7 +10,7 @@ pub fn parse_args(args: Vec<String>) -> Result<(Fractal, String), String> {
     let it: usize = 1;
     let mut width: usize = 0;
     let mut height: usize = 0;
-    let mut filename: String = "".to_string();
+    let mut filename: String = "julia.ppm".to_string();
     let mut max_iter: usize = 300;
     let mut c = Complex{re:0.0, im:0.0};
     let mut center = Complex{re:0.0, im:0.0};
@@ -59,7 +59,7 @@ pub fn parse_args(args: Vec<String>) -> Result<(Fractal, String), String> {
         }
         i += 2;
     }
-    if width == 0 || height == 0 || filename == "".to_string() {
+    if width == 0 || height == 0 {
         return Err("Required Arguments weren't provided!".to_string());
     }
 
