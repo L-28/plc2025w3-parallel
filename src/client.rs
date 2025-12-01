@@ -12,7 +12,7 @@ pub fn parse_args(args: Vec<String>) -> Result<(Fractal, String), String> {
     let mut height: usize = 0;
     let mut filename: String = "julia.ppm".to_string();
     let mut max_iter: usize = 300;
-    let mut c = Complex{re:0.0, im:0.0};
+    let mut c = Complex{re:-0.7, im:0.27015};
     let mut center = Complex{re:0.0, im:0.0};
     let mut zoom:f64 = 1.0;
     let mut i = 1;
