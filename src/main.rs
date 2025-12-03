@@ -5,7 +5,6 @@ mod image;
 mod complex;
 mod fractal;
 mod client;
-mod tests;
 
 use crate::image::Image;
 
