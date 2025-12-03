@@ -67,16 +67,16 @@ impl Fractal {
         let mut vec: Vec<CPixel> = vec![CPixel{x: 0, y: 0, pixel: Pixel{r: 0, g: 0, b: 0}}; self.width*self.height];
         let mut x = 0;
         let mut y = 0;
-        while x + y*self.height < vec.len() {
-            vec[x + y*self.height] = CPixel{x: x, y: y, pixel: Pixel{r: 0, g: 0, b: 0}};
+        while x + y*self.width < vec.len() {
+            vec[x + y*self.width] = CPixel{x: x, y: y, pixel: Pixel{r: 0, g: 0, b: 0}};
             x += 1;
             if x == self.width {
                 y += 1;
                 x = 0;
             }
         }
-        let sw = (3.0/self.zoom as f64/self.width as f64);
-        let sh = (3.0/self.zoom as f64/self.height as f64);
+        let sw = 3.0/self.zoom as f64/self.width as f64;
+        let sh = 3.0/self.zoom as f64/self.height as f64;
         let refer = self.clone();
         thread::scope(|s| {
             let chlen = vec.len()/thread::available_parallelism().unwrap().get();
@@ -95,9 +95,9 @@ impl Fractal {
         let mut ret = Image::new(self.width, self.height);
         x = 0;
         y = 0;
-        while x + y*self.height < vec.len() {
+        while x + y*self.width < vec.len() {
             if let Some(pixel) = ret.get_mut(x,y) {
-                    *pixel = vec[x + y*self.height].pixel;
+                    *pixel = vec[x + y*self.width].pixel;
             }
             x += 1;
             if x == self.width {
@@ -110,7 +110,7 @@ impl Fractal {
     pub fn check_pixel(&self, z0: Complex) -> Option<usize> {
         let mut it = 0;
         let mut z = z0;
-        for i in 0..self.max_iter {
+        for _ in 0..self.max_iter {
             z = z*z + self.c;
             if z.mag_squared() > 4.0 {
                 return Some(it);
