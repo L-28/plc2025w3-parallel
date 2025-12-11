@@ -29,13 +29,9 @@ Options:
     }
     let outp = client::parse_args(args);
     let frac = outp.clone().unwrap().0;
-    let st = std::time::Instant::now();
-    let simage = frac.render_sequentially();
-    println!("Rendering the image sequentially took {}ms.", st.elapsed().as_millis());
     let pt = std::time::Instant::now();
     let image = frac.render();
     println!("Rendering the image in parallel took {}ms.", pt.elapsed().as_millis());
     let _ = client::save_ppm(&image, &outp.clone().unwrap().1, "P6");
-    let _ = client::save_ppm(&simage, "sequ.ppm", "P6");
     println!("Julia set saved to {} (pixel check: {})", &outp.clone().unwrap().1, image.get_black_pixel_count());
 }
